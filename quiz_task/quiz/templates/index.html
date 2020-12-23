@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://css.gg/pen.css' rel='stylesheet'>
+    <title>Document</title>
+    <style>
+        .topic{
+            display: flex;
+            
+            align-items: center;
+            padding-left: 35%;
+
+            
+            
+            
+        }
+        .topics{
+            margin-left: 10%;
+            margin-top: 5%;
+            background-color: white;
+
+        }
+        body{
+            background-color: whitesmoke;
+        }
+        a:hover {
+            background-color: skyblue;
+          }
+
+          i:hover {
+            background-color: red;
+          }
+    </style>
+</head>
+<body>
+    
+    
+    <h2>Available quizes  </h2>
+    <div class="topics">
+        <div class="topic">
+            <a href="http://127.0.0.1:8000/add_question/quiz name here"><h3>Create new quiz </h3></a>
+       
+    </div>
+    
+    {% for quiz in topics  %}
+   
+    <div class="topic ">
+    <a href="http://127.0.0.1:8000/take_quiz/{{quiz}}"><h3>Take {{quiz}} </h3></a>
+    &ensp;  &ensp;
+    <a  href="http://127.0.0.1:8000/add_question/{{quiz}}"><i  onmousemove=topup(event) onmouseout="take(event)"  class="gg-pen"> </i> <span id="topup_div" style="margin-left:10px;"> </span></a>
+    
+    </div>
+    
+    {% endfor %}
+
+    
+</div>
+<script>
+
+    function topup(e){
+        console.log('hover')
+        document.getElementById("topup_div").innerHTML="Add question"
+    }
+    function take(e){
+        console.log('hover')
+        document.getElementById("topup_div").innerHTML=""
+    }
+</script>
+
+
+    
+</body>
+</html>
